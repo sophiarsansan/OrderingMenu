@@ -37,18 +37,23 @@ public class Order {
                     System.out.print("Enter quantity: ");
                     int quantity = scanner.nextInt();
                     scanner.nextLine(); // Consume the newline character
+                    if (quantity < 0) {
+                    	System.out.println("Quantity input is invalid, please input a valid Quantity");
+                    	
+                    }else {
+                    	// Calculate the cost of the order and add it to the total bill
+                        double orderCost = menu.getPrice(itemNumber) * quantity;
+                        totalBill += orderCost;
 
-                    // Calculate the cost of the order and add it to the total bill
-                    double orderCost = menu.getPrice(itemNumber) * quantity;
-                    totalBill += orderCost;
+                        // Add the order item to the list
+                        OrderItem orderItem = new OrderItem(menu.getItemName(itemNumber), quantity, orderCost);
+                        orderItems.add(orderItem);
 
-                    // Add the order item to the list
-                    OrderItem orderItem = new OrderItem(menu.getItemName(itemNumber), quantity, orderCost);
-                    orderItems.add(orderItem);
-
-                    System.out.println(
-                            "Added " + quantity + " " + menu.getItemName(itemNumber) + "(s) to your order. Cost: ₱"
-                                    + orderCost);
+                        System.out.println(
+                                "Added " + quantity + " " + menu.getItemName(itemNumber) + "(s) to your order. Cost: ₱"
+                                        + orderCost);
+                    }
+                    
                 } else {
                     System.out.println("Invalid item number. Please choose from the menu.");
                 }
