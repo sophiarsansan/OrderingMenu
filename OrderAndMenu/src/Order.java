@@ -1,5 +1,7 @@
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Order {
@@ -10,8 +12,9 @@ public class Order {
         // Create a Scanner object for user input
         Scanner scanner = new Scanner(System.in);
 
-        // Initialize variables for the total bill
+        // Initialize variables for the total bill and the order items
         double totalBill = 0.0;
+        List<OrderItem> orderItems = new ArrayList<>();
 
         // Display the menu
         menu.displayMenu();
@@ -39,6 +42,10 @@ public class Order {
                     double orderCost = menu.getPrice(itemNumber) * quantity;
                     totalBill += orderCost;
 
+                    // Add the order item to the list
+                    OrderItem orderItem = new OrderItem(menu.getItemName(itemNumber), quantity, orderCost);
+                    orderItems.add(orderItem);
+
                     System.out.println(
                             "Added " + quantity + " " + menu.getItemName(itemNumber) + "(s) to your order. Cost: ₱"
                                     + orderCost);
@@ -50,8 +57,8 @@ public class Order {
             }
         }
 
-        // Display the total bill
-        System.out.println("Your total bill is: ₱" + totalBill);
+        // Display the receipt using the Receipt class
+        Receipt.printReceipt(orderItems, totalBill);
 
         // Close the scanner
         scanner.close();
