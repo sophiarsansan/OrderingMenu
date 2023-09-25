@@ -19,10 +19,15 @@ public class Menu {
         menuItems.put(5, new MenuItem("Hotdog", 30.00));
         menuItems.put(6, new MenuItem("Tocino", 35.00));
         menuItems.put(7, new MenuItem("Ginataan", 40.00));
-        menuItems.put(8, new MenuItem("Coke", 80.00));
-        menuItems.put(9, new MenuItem("Water", 10.00));
-        menuItems.put(10, new MenuItem("Icetea", 15.00));
-        menuItems.put(11, new MenuItem("Rice", 25.00));
+        menuItems.put(8, new MenuItem("Chicken Adobo", 75.00));
+        menuItems.put(9, new MenuItem("Pork Sinigang", 75.00));
+        menuItems.put(10, new MenuItem("Bulalo", 105.00));
+        menuItems.put(11, new MenuItem("Coke", 80.00));
+        menuItems.put(12, new MenuItem("Water", 10.00));
+        menuItems.put(13, new MenuItem("Icetea", 15.00));
+        menuItems.put(14, new MenuItem("Buko Juice", 25.00));
+        menuItems.put(15, new MenuItem("Rice", 25.00));
+        
     }
 
     public double getPrice(int itemNumber) {
